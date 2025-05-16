@@ -1,0 +1,156 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\sectionfont{\fontsize{14}{15}\selectfont}
+
+\renewcommand\familydefault{\rmdefault}
+\usepackage{tgheros}
+%\usepackage[defaultmono]{droidmono}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp, mathtools}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{todonotes}
+\usepackage{hyperref}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+
+\usepackage{geometry}
+\geometry{
+left=25mm,right=25mm,%
+bindingoffset=0mm, top=20mm,bottom=20mm}
+
+\hbadness=99999 
+\hfuzz=9999pt
+\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+% custom theorems if needed
+\newtheoremstyle{mytheor}
+    {1ex}{1ex}{\normalfont}{0pt}{\scshape}{.}{1ex}
+    {{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\theoremstyle{mytheor}
+\newtheorem{defi}{Definition}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+Text Mining \hfill \@date\\
+\@author \hfill Summer Semester 2025\\
+\linia\\
+\vspace{2ex}
+\end{center}
+}
+\makeatother
+%%%
+
+% custom footers and headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{Page \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+\setlist{noitemsep}
+
+\title{Home Assignment 01}
+
+\author{Sandipan Sikdar, Jonas Wallat, Huyen Nguyen}
+
+\date{Due by \textbf{\textcolor{red}{23rd May, 2025 at 23:59 CET}}}
+
+\maketitle
+
+\section*{Submission Details}
+\begin{itemize}
+    \item Please submit a single compressed folder (.zip) containing one PDF file with all text responses and one Jupyter Notebook for the coding tasks. Please keep all generated outputs in the Jupyter Notebook so we can grade your submission without rerunning your code.
+    \item For each answer/code snippet, clearly state what task you are referencing. If you are not confident in an answer, try nonetheless, as it is possible to receive partial points.
+    \item You are encouraged to work in groups of up to three students. Add all team members' names and matriculation numbers at the top of the PDF file \textbf{and} your notebook.
+    \item You may use online resources for help, but copying online resources is prohibited. Cite or link any resources you use.
+    \item If you have any questions, create a post in the forum.
+\end{itemize}
+
+\section{Gradient Descent [10 points]}
+\begin{enumerate}
+    \item In your own words, explain why we need gradient/derivative calculation during neural network training. (5 points)
+    \item Explain the role of the loss function in gradient descent. What happens if we choose a bad loss function for our task? (5 points) 
+\end{enumerate}
+
+\section{Neural Network Basics [50 points]}
+In this task, you will create a 2-layer neural network from scratch using NumPy. The network will calculate $y = W2 * ReLU (W1 * x + b1 ) + b2$ , where $x$ is the input, $W_*$ are weight matrices and $b_*$ are bias terms. Do not use PyTorch or any similar framework. The given Jupyter Notebook includes the general setup. Complete the TODOs in the notebook. You may change any existing parts as long as you do not change the objective of the task (all parts below need to be present in some form) and the code remains easy to understand and well documented. Please show the step-by-step computation of any derivations in your PDF file.
+The point distribution is as follows:
+\begin{itemize}
+    \item Initialization (5 points)
+    \item Loss calculation (7 points)
+    \item Gradient derivation \& implementation (15 points)
+    \item Calculation of output $y$ (10 points)
+    \item Training loop (Loss calculation and update step) (7 points)
+    \item Plotting (6 points)
+\end{itemize}
+
+
+\section{Embeddings [40 points]}
+\begin{enumerate}
+    \item In your own words, explain why we use embeddings. (4 points)
+    \item Complete the following tasks in the given Jupyter Notebook (36 points):
+    \begin{itemize}
+        \item Perform intrinsic evaluation of embeddings
+        \item Create a word embedding-based classifier
+    \end{itemize}
+    See the tasks in the Jupyter Notebook for more information and point distribution.
+\end{enumerate}
+
+
+
+
+\end{document}
